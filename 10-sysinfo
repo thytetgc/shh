@@ -82,6 +82,9 @@ fi
 printf 'Kernel:       '
 uname -s -r -m
 
+printf 'S.O.:         '
+lsb_release -d | cut -d : -f 2- | sed 's/^[ \t]*//;s/[ \t]*$//'
+
 printf '\n'
 
 printf 'Disks:\n'
