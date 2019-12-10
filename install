@@ -1,0 +1,21 @@
+'''Instala Dependencias'''
+apt-get -y install python-apt screenfetch
+
+'''Backup dos Arquivos e Alteração''
+cp -rf /etc/ssh/ /etc/ssh.bkp
+cd /etc/ssh/ && rm -rf sshd_config
+wget https://raw.githubusercontent.com/thytetgc/shh/master/sshd_config
+
+cp -rf /etc/update-motd.d/ /etc/update-motd.d.bkp/
+cd /etc/update-motd.d && rm -rf *
+wget https://raw.githubusercontent.com/thytetgc/shh/master/00-header
+wget https://raw.githubusercontent.com/thytetgc/shh/master/10-sysinfo
+wget https://raw.githubusercontent.com/thytetgc/shh/master/20-updates
+wget https://raw.githubusercontent.com/thytetgc/shh/master/90-footer
+chmod +x /etc/update-motd.d/*
+
+rm -rf /etc/motd
+wget -N https://raw.githubusercontent.com/thytetgc/shh/master/motd -O /etc/motd
+
+'''Reinicia Serviços'''
+service ssh restart ; /etc/init.d/ssh restart
