@@ -61,8 +61,8 @@ for i in {0..16}; do
   printf "Disk %s:\t%s\n" "$device_name" "$(volume_metadata $i VOLUME_TYPE) ${SIZE}"
 done
 printf "\n"
-printf "Documentation:\t%s\n" "$IMAGE_DOC_URL"
-printf "Community:\t%s\n" "$IMAGE_HELP_URL"
-printf "Image source:\t%s\n" "$IMAGE_SOURCE_URL"
+#printf "Documentation:\t%s\n" "$IMAGE_DOC_URL"
+#printf "Community:\t%s\n" "$IMAGE_HELP_URL"
+#printf "Image source:\t%s\n" "$IMAGE_SOURCE_URL"
 printf "\n"
 [ -f /etc/motd.tail ] && cat /etc/motd.tail || true
