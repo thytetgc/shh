@@ -1,0 +1,61 @@
+Port 22
+Protocol 2
+
+HostKey /etc/ssh/ssh_host_rsa_key
+HostKey /etc/ssh/ssh_host_dsa_key
+HostKey /etc/ssh/ssh_host_ecdsa_key
+HostKey /etc/ssh/ssh_host_ed25519_key
+
+UsePrivilegeSeparation yes
+
+KeyRegenerationInterval 1200
+ServerKeyBits 1024
+
+SyslogFacility AUTHPRIV
+LogLevel INFO
+
+LoginGraceTime 120
+
+PermitRootLogin yes
+
+StrictModes yes
+
+RSAAuthentication yes
+
+PubkeyAuthentication yes
+
+AuthorizedKeysFile   %h/.ssh/authorized_keys
+
+IgnoreRhosts yes
+
+RhostsRSAAuthentication no
+HostbasedAuthentication no
+
+PermitEmptyPasswords no
+
+ChallengeResponseAuthentication no
+
+PasswordAuthentication yes
+
+UsePAM yes
+Banner no
+
+X11Forwarding yes
+X11DisplayOffset 10
+
+PrintMotd no
+PrintLastLog yes
+
+TCPKeepAlive yes
+
+ClientAliveInterval 600
+ClientAliveCountMax 0
+
+MaxAuthTries 5
+MaxSessions 10
+
+MaxStartups 5:50:10
+
+AcceptEnv LANG LC_*
+
+Subsystem       sftp    /usr/lib/sftp-server
